@@ -55,7 +55,7 @@ function AddBook(e) {
   const hr = document.createElement('hr');
   newBook.appendChild(hr);
 
-  library.push({ title:titleInput.value, author:authorInput.value });
+  library.push({ title: titleInput.value, author: authorInput.value });
   localStorage.setItem('libraryData', JSON.stringify(library));
 }
 
@@ -70,7 +70,7 @@ function removeBook(e) {
 
   const bookTitle = e.currentTarget.previousElementSibling.previousElementSibling.textContent;
 
-  library = library.filter(obj => { obj.title!==bookTitle });
+  library = library.filter((obj) => { return obj.title !== bookTitle });
   localStorage.setItem('libraryData', JSON.stringify(library));
 }
 
