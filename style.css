@@ -1,0 +1,11 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+}
+
+.container-v {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  gap: 10px;
+}
