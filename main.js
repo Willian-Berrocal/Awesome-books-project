@@ -15,7 +15,7 @@ if (data !== null) {
     const titleSpan = document.createElement('span');
     titleSpan.textContent = data[i].title;
     newBook.appendChild(titleSpan);
-  
+
     const authorSpan = document.createElement('span');
     authorSpan.textContent = data[i].author;
     newBook.appendChild(authorSpan);
@@ -27,13 +27,12 @@ if (data !== null) {
 
     newBook.appendChild(document.createElement('hr'));
 
-    library.push({title: data[i]['title'], author: data[i]['author']});
+    library.push({ title: data[i].title, author: data[i].author });
   }
   localStorage.setItem('libraryData', JSON.stringify(library));
 }
 
-
-function AddBook (e) {
+function AddBook(e) {
   e.preventDefault();
 
   const newBook = document.createElement('div');
@@ -53,26 +52,27 @@ function AddBook (e) {
   removeButton.textContent = 'Remove';
   newBook.appendChild(removeButton);
 
-  const hr = document.createElement("HR");
+  const hr = document.createElement('hr');
   newBook.appendChild(hr);
 
-  library.push({title:titleInput.value, author:authorInput.value});
+  library.push({ title:titleInput.value, author:authorInput.value });
   localStorage.setItem('libraryData', JSON.stringify(library));
 }
 
 addButton.addEventListener('click', AddBook);
 
-
 const removeButton = document.querySelectorAll('.remove-button');
 
-function removeBook (e) {
+function removeBook(e) {
   e.preventDefault();
   const parentDiv = e.currentTarget.parentNode;
   parentDiv.remove();
 
   const bookTitle = e.currentTarget.previousElementSibling.previousElementSibling.textContent;
 
-  library = library.filter(obj => obj.title!==bookTitle);
+  library = library.filter(obj => {
+    obj.title!==bookTitle;
+  });
   localStorage.setItem('libraryData', JSON.stringify(library));
 }
 
