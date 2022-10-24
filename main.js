@@ -70,7 +70,9 @@ function removeBook(e) {
 
   const bookTitle = e.currentTarget.previousElementSibling.previousElementSibling.textContent;
 
-  library = library.filter((obj) => { return obj.title !== bookTitle });
+  library = library.filter((obj) => { 
+    return obj.title !== bookTitle; 
+  });
   localStorage.setItem('libraryData', JSON.stringify(library));
 }
 
