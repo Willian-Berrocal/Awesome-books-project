@@ -53,7 +53,8 @@ function AddBook (e) {
   removeButton.textContent = 'Remove';
   newBook.appendChild(removeButton);
 
-  newBook.appendChild(document.createElement('hr'));
+  const hr = document.createElement("HR");
+  newBook.appendChild(hr);
 
   library.push({title:titleInput.value, author:authorInput.value});
   localStorage.setItem('libraryData', JSON.stringify(library));
