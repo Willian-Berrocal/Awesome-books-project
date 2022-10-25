@@ -5,7 +5,7 @@ const books = JSON.parse(localStorage.getItem('books') || '[]');
 btn.addEventListener('click', () => {
   const bookTitle = document.getElementById('title').value;
   const bookAuthor = document.getElementById('author').value;
-  const myBook = new myBooks(bookTitle, bookAuthor);
+  const myBook = new MyBooks(bookTitle, bookAuthor);
   if (myBook.addBook() === true) {
     booksDiv.innerHTML += `
     <p id="${books.length - 1}-del" class="book-class">
