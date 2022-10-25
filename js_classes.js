@@ -1,11 +1,9 @@
 class MyBooks {
-    
   constructor(title, author) {
       this.title = title;
       this.author = author;
       MyBooks.val = true;
   }
-
   addBook() {
     const books = JSON.parse(localStorage.getItem('books') || '[]');
     const book = {
@@ -16,7 +14,6 @@ class MyBooks {
     localStorage.setItem('books', JSON.stringify(books));
     return true;
   }
-
   previewBook(div, arrLength) {
     div.innerHTML += `
       <p id="${arrLength}-del" class="book-class">
@@ -24,15 +21,13 @@ class MyBooks {
           <button class="delete-button" id="${arrLength}">Remove</button>
       </p>`;
   }
-
   static removeBook(id) {
     const books = JSON.parse(localStorage.getItem('books') || '[]');
     books.splice(id, 1);
     localStorage.setItem('books', JSON.stringify(books));
     return true;
   }
-
-  static displayBooks() {
+  static displayBooks(booksDiv) {
     const books = JSON.parse(localStorage.getItem('books') || '[]');
     if (books !== null) {
       for (let i = 0; i < books.length; i += 1) {
