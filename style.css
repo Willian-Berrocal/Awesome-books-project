@@ -1,9 +1,18 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .add-button {
   width: 40%;
   height: 30px;
 }
 
-#title {
+#title-input,
+#author-input {
   height: 30px;
   width: 300px;
 }

@@ -57,6 +57,8 @@ function AddBook(e) {
 
   library.push({ title: titleInput.value, author: authorInput.value });
   localStorage.setItem('libraryData', JSON.stringify(library));
+
+  window.self.window.self.window.window.location = window.location;
 }
 
 addButton.addEventListener('click', AddBook);
@@ -70,9 +72,7 @@ function removeBook(e) {
 
   const bookTitle = e.currentTarget.previousElementSibling.previousElementSibling.textContent;
 
-  library = library.filter((obj) => { 
-    return obj.title !== bookTitle; 
-  });
+  library = library.filter((obj) => obj.title !== bookTitle);
   localStorage.setItem('libraryData', JSON.stringify(library));
 }
 
