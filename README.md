@@ -1,14 +1,17 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# (project name......................................................)
+# Awesome Books Page
 
-> (instructions......................................................)
-> 
+> Implement "Add" button functionality
+> Create elements dynamically
+> Refactor code to use JavaScript classes
 
 
 ## Built With
 
-- (HTML & CSS.........................................................)
+- HTML
+- CSS
+- JavaScript
 
 
 ## Getting Started
@@ -17,7 +20,7 @@ Clone this repository and open it in your browser.
 
 ### Deployment
 
-(LINK DE GH PAGES.........................................................)
+(In progress...)
 
 
 ## Authors

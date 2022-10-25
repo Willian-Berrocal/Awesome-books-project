@@ -6,16 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Awesome Books</title>
     <link rel="stylesheet" href="style.css">
+    <script src="./js_classes.js"></script>
 </head>
 <body>
-    <h1>Awesome Books</h1>
-    <section id="display-books"></section>
+  <main>
+    <section class="all-books">
+        <h1 class="title-post">Awesome Books</h1>
+        <section id="display-books" class="display-books-div"></section>
+    </section> 
     <br>
-    <form action="" method="post">
-        <input type="text" name="title" id="title" placeholder="Title" required ><br><br>
-        <input type="text" name="author" id="author" placeholder="Author" required ><br><br>
-        <input type="button" value="Add" id="btn">
-    </form>
-    <script src="./main.js"></script>
+    <section class="add-books">
+        <span class="rule-line"></span>
+        <h1>Add a new book</h1>
+        <form action="" method="post">
+            <input type="text" name="title" id="title" placeholder="Title" required><br><br>
+            <input type="text" name="author" id="author" placeholder="Author" required><br><br>
+            <input type="button" value="Add" id="btn">
+        </form>
+    </section>
+  </main>
+  <script src="./main.js"></script>
 </body>
 </html>

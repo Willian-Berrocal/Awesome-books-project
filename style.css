@@ -1,3 +1,63 @@
 body {
   font-size: 17px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.book-class {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 5px 5px 0 5px;
+  align-items: center;
+}
+
+.all-books {
+  width: 600px;
+}
+
+.title-post {
+  text-align: center;
+}
+
+.display-books-div {
+  border: 2px solid rgb(80, 79, 79);
+}
+
+.book-class:nth-child(odd) {
+  background-color: rgb(236, 234, 234);
+  height: 30px;
+  padding-bottom: 5px;
+}
+
+.add-books {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.rule-line {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 3px solid #000;
+  margin: 1em 0;
+  padding: 0;
+  width: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+#title,
+#author {
+  width: 300px;
+  height: 25px;
+}
+
+#btn {
+  float: right;
+  width: 50px;
+  height: 25px;
 }
