@@ -44,3 +44,5 @@ class MyBooks {
     }
   }
 }
+
+export { MyBooks };
