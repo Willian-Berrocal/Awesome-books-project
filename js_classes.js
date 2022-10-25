@@ -45,4 +45,4 @@ class MyBooks {
   }
 }
 
-export { MyBooks };
+export default MyBooks;
