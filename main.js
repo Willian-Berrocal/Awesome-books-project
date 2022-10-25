@@ -19,7 +19,7 @@ btn.addEventListener('click', () => {
       <button class="delete-button" id="${books.length - 1}">Remove</button>
       <hr id="${books.length - 1}-hr">
   </p>`;
-  history.go(0);
+  window.history.go(0);
 });
 
 function displayBooks() {
