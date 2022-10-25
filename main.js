@@ -39,7 +39,7 @@ displayBooks();
 const del = document.querySelectorAll('.delete-button');
 del.forEach((element) => {
   element.addEventListener('click', () => {
-    const id = parseInt(element.getAttribute('id', 10));
+    const id = parseInt(element.getAttribute('id'), 10);
     books.splice(id, 1);
     localStorage.setItem('books', JSON.stringify(books));
     const hrRule = id + '-hr';
