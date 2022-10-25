@@ -13,11 +13,13 @@ btn.addEventListener('click', () => {
   localStorage.setItem('books', JSON.stringify(books));
 
   booksDiv.innerHTML += `
-  <p>
+  <p id="${books.length - 1}-del">
       <span>${book.title}</span><br>
       <span>${book.author}</span><br>
-      <button id="${books.length - 1}">Remove</button><hr>
+      <button class="delete-button" id="${books.length - 1}">Remove</button>
+      <hr id="${books.length - 1}-hr">
   </p>`;
+  history.go(0);
 });
 
 function displayBooks() {
