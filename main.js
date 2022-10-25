@@ -23,8 +23,8 @@ btn.addEventListener('click', () => {
 });
 
 function displayBooks() {
-  if (books !== null){
-    for (let i = 0; i < books.length; i += 1){
+  if (books !== null) {
+    for (let i = 0; i < books.length; i += 1) {
       booksDiv.innerHTML += `
         <p id="${i}-del">
             <span>${books[i].title}</span><br>
