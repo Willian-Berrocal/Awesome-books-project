@@ -1,79 +1,48 @@
-const authorInput = document.querySelector('.form-author');
-const titleInput = document.querySelector('.form-title');
-const booksSection = document.querySelector('.books-section');
-const addButton = document.querySelector('.add-button');
-let library = [];
+const btn = document.getElementById('btn');
+const booksDiv = document.getElementById('display-books');
+let books = JSON.parse(localStorage.getItem('books') || '[]');
 
-const data = JSON.parse(localStorage.getItem('libraryData'));
+btn.addEventListener('click', () => {
+  const bookTitle = document.getElementById('title').value;
+  const bookAuthor = document.getElementById('author').value;
+  const book = {
+    title: bookTitle,
+    author: bookAuthor,
+  };
+  books.push(book);
+  localStorage.setItem('books', JSON.stringify(books));
 
-if (data !== null) {
-  for (let i = 0; i < data.length; i += 1) {
-    const newBook = document.createElement('div');
-    newBook.classList.add('book-info');
-    booksSection.appendChild(newBook);
+  booksDiv.innerHTML += `
+  <p>
+      <span>${book.title}</span><br>
+      <span>${book.author}</span><br>
+      <button id="${books.length-1}">Remove</button><hr>
+  </p>`;
+});
 
-    const titleSpan = document.createElement('span');
-    titleSpan.textContent = data[i].title;
-    newBook.appendChild(titleSpan);
-
-    const authorSpan = document.createElement('span');
-    authorSpan.textContent = data[i].author;
-    newBook.appendChild(authorSpan);
-
-    const removeButton = document.createElement('button');
-    removeButton.classList.add('remove-button');
-    removeButton.textContent = 'Remove';
-    newBook.appendChild(removeButton);
-
-    newBook.appendChild(document.createElement('hr'));
-
-    library.push({ title: data[i].title, author: data[i].author });
+function displayBooks() {
+  if(books !== null){
+    for(let i = 0; i < books.length; i++){
+      booksDiv.innerHTML += `
+        <p id="${i}-del">
+            <span>${books[i].title}</span><br>
+            <span>${books[i].author}</span><br>
+            <button class="delete-button" id="${i}">Remove</button>
+            <hr id="${i}-hr">
+        </p>`;
+    }
   }
-  localStorage.setItem('libraryData', JSON.stringify(library));
 }
 
-function AddBook(e) {
-  e.preventDefault();
+displayBooks();
 
-  const newBook = document.createElement('div');
-  newBook.classList.add('book-info');
-  booksSection.appendChild(newBook);
-
-  const titleSpan = document.createElement('span');
-  titleSpan.textContent = titleInput.value;
-  newBook.appendChild(titleSpan);
-
-  const authorSpan = document.createElement('span');
-  authorSpan.textContent = authorInput.value;
-  newBook.appendChild(authorSpan);
-
-  const removeButton = document.createElement('button');
-  removeButton.classList.add('remove-button');
-  removeButton.textContent = 'Remove';
-  newBook.appendChild(removeButton);
-
-  const hr = document.createElement('hr');
-  newBook.appendChild(hr);
-
-  library.push({ title: titleInput.value, author: authorInput.value });
-  localStorage.setItem('libraryData', JSON.stringify(library));
-}
-
-addButton.addEventListener('click', AddBook);
-
-const removeButton = document.querySelectorAll('.remove-button');
-
-function removeBook(e) {
-  e.preventDefault();
-  const parentDiv = e.currentTarget.parentNode;
-  parentDiv.remove();
-
-  const bookTitle = e.currentTarget.previousElementSibling.previousElementSibling.textContent;
-
-  library = library.filter((obj) => { 
-    return obj.title !== bookTitle; 
+const del = document.querySelectorAll('.delete-button');
+del.forEach((element) => {
+  element.addEventListener('click', () => {
+    const id = parseInt(element.getAttribute('id',10));
+    books.splice(id, 1);
+    localStorage.setItem('books', JSON.stringify(books));
+    document.getElementById(id+'-hr').style.display = 'none';
+    document.getElementById(id+'-del').remove();
   });
-  localStorage.setItem('libraryData', JSON.stringify(library));
-}
-
-removeButton.forEach((btn) => btn.addEventListener('click', removeBook));
+});
