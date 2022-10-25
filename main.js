@@ -42,7 +42,9 @@ del.forEach((element) => {
     const id = parseInt(element.getAttribute('id'), 10);
     books.splice(id, 1);
     localStorage.setItem('books', JSON.stringify(books));
-    document.getElementById(`${id}-hr`).style.display = 'none';
-    document.getElementById(`${id}-del`).remove();
+    const x = id.toString().concat('-hr');
+    const y = id.toString().concat('-del');
+    document.getElementById(x).style.display = 'none';
+    document.getElementById(y).remove();
   });
 });
