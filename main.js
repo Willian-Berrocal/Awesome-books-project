@@ -42,11 +42,54 @@ class MyBooks {
       }
     }
   }
+
+  static time() {
+    const date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const hrs = date.getHours();
+    const mns = date.getMinutes();
+    const sc = date.getSeconds();
+    const tm = hrs > 12 ? 'PM':'AM';
+    const nhrs = hrs > 12 ? hrs - 12 : hrs;
+
+    return `${months[month]} ${day} ${year}, ${nhrs}:${mns}:${sc} ${tm}`;
+  }
 }
 
 const btn = document.getElementById('btn');
 const booksDiv = document.getElementById('display-books');
 const books = JSON.parse(localStorage.getItem('books') || '[]');
+const DisplayBookListDiv = document.getElementById('all-books');
+const DisplayContact = document.getElementById('contact-div');
+const DisplayAddNew = document.getElementById('add-books');
+const listLink = document.getElementById('list');
+const addBookLink = document.getElementById('add-new');
+const contactLink = document.getElementById('contact-link');
+
+document.querySelector('.date').innerHTML = MyBooks.time();
+
+listLink.addEventListener('click', () => {
+  DisplayBookListDiv.style.display = 'block';
+  DisplayContact.style.display = 'none';
+  DisplayAddNew.style.display = 'none';
+});
+
+addBookLink.addEventListener('click', () => {
+  DisplayBookListDiv.style.display = 'none';
+  DisplayContact.style.display = 'none';
+  DisplayAddNew.style.display = 'block';
+});
+
+contactLink.addEventListener('click', () => {
+  DisplayBookListDiv.style.display = 'none';
+  DisplayContact.style.display = 'block';
+  DisplayAddNew.style.display = 'none';
+});
+
+
 
 btn.addEventListener('click', () => {
   const bookTitle = document.getElementById('title').value;
