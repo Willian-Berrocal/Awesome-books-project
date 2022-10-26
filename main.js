@@ -17,9 +17,9 @@ class MyBooks {
 
   previewBook(div, arrLength) {
     div.innerHTML += `
-      <p id="${arrLength}-del" class="book-class">
-          <span>"${this.title}" by ${this.author}</span>
-          <button class="delete-button" id="${arrLength}">Remove</button>
+      <p id='${arrLength}-del' class='book-class'>
+          <span>'${this.title}' by ${this.author}</span>
+          <button class='delete-button' id='${arrLength}'>Remove</button>
       </p>`;
   }
 
@@ -35,9 +35,9 @@ class MyBooks {
     if (books !== null) {
       for (let i = 0; i < books.length; i += 1) {
         booksDiv.innerHTML += `
-          <p id="${i}-del" class="book-class">
-              <span>"${books[i].title}" by ${books[i].author}</span>
-              <button class="delete-button" id="${i}">Remove</button>
+          <p id='${i}-del' class='book-class'>
+              <span>'${books[i].title}' by ${books[i].author}</span>
+              <button class='delete-button' id='${i}'>Remove</button>
           </p>`;
       }
     }
@@ -45,14 +45,14 @@ class MyBooks {
 
   static time() {
     const date = new Date();
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
-    let year = date.getFullYear();
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const hrs = date.getHours();
     const mns = date.getMinutes();
     const sc = date.getSeconds();
-    const tm = hrs > 12 ? 'PM':'AM';
+    const tm = hrs > 12 ? 'PM' : 'AM';
     const nhrs = hrs > 12 ? hrs - 12 : hrs;
 
     return `${months[month]} ${day} ${year}, ${nhrs}:${mns}:${sc} ${tm}`;
@@ -88,8 +88,6 @@ contactLink.addEventListener('click', () => {
   DisplayContact.style.display = 'block';
   DisplayAddNew.style.display = 'none';
 });
-
-
 
 btn.addEventListener('click', () => {
   const bookTitle = document.getElementById('title').value;
