@@ -17,9 +17,9 @@ class MyBooks {
 
   previewBook(div, arrLength) {
     div.innerHTML += `
-      <p id='${arrLength}-del' class='book-class'>
-          <span>'${this.title}' by ${this.author}</span>
-          <button class='delete-button' id='${arrLength}'>Remove</button>
+      <p id="${arrLength}-del" class="book-class">
+          <span>"${this.title}" by ${this.author}</span>
+          <button class="delete-button" id="${arrLength}">Remove</button>
       </p>`;
   }
 
@@ -35,9 +35,9 @@ class MyBooks {
     if (books !== null) {
       for (let i = 0; i < books.length; i += 1) {
         booksDiv.innerHTML += `
-          <p id='${i}-del' class='book-class'>
-              <span>'${books[i].title}' by ${books[i].author}</span>
-              <button class='delete-button' id='${i}'>Remove</button>
+          <p id="${i}-del" class="book-class">
+              <span>"${books[i].title}" by ${books[i].author}</span>
+              <button class="delete-button" id="${i}">Remove</button>
           </p>`;
       }
     }
